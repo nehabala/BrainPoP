@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: cd5eceffbab84cd40b9f59dae2a252f0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: I Heart You Always
+  fontNames:
+  - I Heart You Always
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c8ce5a51f39ed79458dff5f15569b5fc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
