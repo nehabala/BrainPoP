@@ -13,9 +13,9 @@ namespace Vuforia
         private GameObject _score;
         //public Transform TextTargetName;
         //public Transform TextDescription;
-        public Transform Button1;
-        public Transform Button2;
-        public Text answerTxt;
+        //public Transform Button1;
+        //public Transform Button2;
+        public Text AnswerTxt;
         public bool ansCheck;
         string tb_name;
 
@@ -31,45 +31,45 @@ namespace Vuforia
             //soundTarget = (AudioSource)gameObject.AddComponent<AudioSource>();
             scorekeeperScript = (ScoreKeeper)_score.GetComponent<ScoreKeeper>();
 
-            Button1.GetComponent<Button>().onClick.AddListener(delegate {
-                if (tb_name != null)
-                {
-                    ansCheck = scorekeeperScript.CheckAnswer(tb_name, "Button1");
-                    Debug.Log(ansCheck);
-                    //Debug.Log("######button 1 was pressed");
-                    if (ansCheck == true)
-                    {
-                        printRightAnswer();
-                    }
-                    else
-                        printWrongAnswer();
-                }
+            //Button1.GetComponent<Button>().onClick.AddListener(delegate {
+            //    if (tb_name != null)
+            //    {
+            //        ansCheck = scorekeeperScript.CheckAnswer(tb_name, "Button1");
+            //        Debug.Log(ansCheck);
+            //        //Debug.Log("######button 1 was pressed");
+            //        if (ansCheck == true)
+            //        {
+            //            printRightAnswer();
+            //        }
+            //        else
+            //            printWrongAnswer();
+            //    }
                 
 
-            });
+            //});
 
-            Button2.GetComponent<Button>().onClick.AddListener(delegate
-            {
-                //Debug.Log("######button 2 was pressed");
-                if (tb_name != null)
-                {
+            //Button2.GetComponent<Button>().onClick.AddListener(delegate
+            //{
+            //    //Debug.Log("######button 2 was pressed");
+            //    if (tb_name != null)
+            //    {
 
-                    Debug.Log("reached inside listener, name of target is " + tb_name);
+            //        Debug.Log("reached inside listener, name of target is " + tb_name);
 
-                    ansCheck = scorekeeperScript.CheckAnswer(tb_name, "Button2");
+            //        ansCheck = scorekeeperScript.CheckAnswer(tb_name, "Button2");
 
-                    Debug.Log("moved after answer check");
+            //        Debug.Log("moved after answer check");
 
-                    if (ansCheck == true)
-                    {
-                        printRightAnswer();
-                        Debug.Log("blah2 button 2 correct");
-                    }
-                    else
-                        printWrongAnswer();
-                }
+            //        if (ansCheck == true)
+            //        {
+            //            printRightAnswer();
+            //            Debug.Log("blah2 button 2 correct");
+            //        }
+            //        else
+            //            printWrongAnswer();
+            //    }
                 
-            });
+            //});
         }
 
         // Update is called once per frame
@@ -82,6 +82,9 @@ namespace Vuforia
             foreach (TrackableBehaviour tb in tbs)
             {
                 tb_name = tb.TrackableName;
+                if (tb_name == null) {
+                    AnswerTxt.text = "Hover over the next target";
+                }
                 //ImageTarget it = tb.Trackable as ImageTarget;
                 //Vector2 size = it.GetSize();
 
@@ -113,11 +116,11 @@ namespace Vuforia
         
 
         public void printRightAnswer() {
-            answerTxt.text = "Right Answer!";
+            AnswerTxt.text = "Right Answer!";
         }
 
         public void printWrongAnswer() {
-            answerTxt.text = "Wrong Answer!";
+            AnswerTxt.text = "Wrong Answer!";
         }
 
         public string returnCurrentTrackableName() {

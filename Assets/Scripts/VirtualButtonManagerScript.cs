@@ -19,6 +19,7 @@ public class VirtualButtonManagerScript : MonoBehaviour, IVirtualButtonEventHand
     // Use this for initialization
     void Start () {
 
+        answerTxt.text = "Hover over the targets";
         scoreKeeperScript = (ScoreKeeper)Score.GetComponent<ScoreKeeper>();
         vbBlah2.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
         tgScript = arcam.GetComponent<TargetData>();
@@ -28,7 +29,7 @@ public class VirtualButtonManagerScript : MonoBehaviour, IVirtualButtonEventHand
     {
         Debug.Log("#### Button pressed ####");
         Debug.Log("Current target is : " + tgScript.returnCurrentTrackableName());
-        answerTxt.text = this.name;
+        answerTxt.text = tgScript.returnCurrentTrackableName();
         //Debug.Log(this.name + "marker name" + tgScript.returnCurrentTrackableName());
 
         if (scoreKeeperScript.checkIfVisited(tgScript.returnCurrentTrackableName()) == false)
@@ -40,6 +41,7 @@ public class VirtualButtonManagerScript : MonoBehaviour, IVirtualButtonEventHand
             {
                 answerTxt.text = "Right answer!";
                 Debug.Log("Right Answer");
+                scoreKeeperScript.increaseScore();
             }
             else
             {
@@ -59,7 +61,7 @@ public class VirtualButtonManagerScript : MonoBehaviour, IVirtualButtonEventHand
     public void OnButtonReleased(VirtualButtonBehaviour vb)
     {
         Debug.Log("#### Button released ####");
-        answerTxt.text = "Vb released";
+        //answerTxt.text = "Vb released";
 
     }
 

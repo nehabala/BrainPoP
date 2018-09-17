@@ -23,8 +23,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     #endregion // PROTECTED_MEMBER_VARIABLES
 
-    public Transform button1;
-    public Transform button2;
+    
 
     #region UNITY_MONOBEHAVIOUR_METHODS
 
@@ -33,8 +32,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
-        button1.gameObject.SetActive(false);
-        button2.gameObject.SetActive(false);
+       
     }
 
     protected virtual void OnDestroy()
@@ -60,16 +58,14 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
-            button1.gameObject.SetActive(true);
-            button2.gameObject.SetActive(true);
+            
             OnTrackingFound();
         }
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
                  newStatus == TrackableBehaviour.Status.NO_POSE)
         {
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
-            button1.gameObject.SetActive(false);
-            button2.gameObject.SetActive(false);
+           
             OnTrackingLost();
         }
         else

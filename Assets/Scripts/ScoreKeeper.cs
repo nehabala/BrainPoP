@@ -11,7 +11,7 @@ public class Details {
 
 public class ScoreKeeper : MonoBehaviour {
     public int score;
-    Details[] deetz = new Details[2];
+    Details[] deetz = new Details[4];
 
 
     // Use this for initialization
@@ -26,6 +26,14 @@ public class ScoreKeeper : MonoBehaviour {
         deetz[1].name = "blah2";
         deetz[1].isVisited = false;
         deetz[1].correctAnswer = "blah2_button1";
+        deetz[2] = new Details();
+        deetz[2].name = "blah3";
+        deetz[2].isVisited = false;
+        deetz[2].correctAnswer = "blah3_button1";
+        deetz[3] = new Details();
+        deetz[3].name = "blah4";
+        deetz[3].isVisited = false;
+        deetz[3].correctAnswer = "blah4_button1";
 
 
     }
@@ -62,7 +70,7 @@ public class ScoreKeeper : MonoBehaviour {
         bool rval=false;
         int i;
 
-        for (i=0;i<2;i++) {
+        for (i=0;i<4;i++) {
             Debug.Log(deetz[i].name + " IS NOT " + detectedName + " i = " + i);
 
             if (deetz[i].name == detectedName && deetz[i].isVisited == false)
