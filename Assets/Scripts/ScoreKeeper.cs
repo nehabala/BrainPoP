@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class Details {
 
     public string name;
     public bool isVisited;
     public string correctAnswer;
+
 }
 
 public class ScoreKeeper : MonoBehaviour {
     public int score;
     Details[] deetz = new Details[4];
+    public TextMeshProUGUI scoreTxt;
+
 
 
     // Use this for initialization
@@ -40,7 +45,7 @@ public class ScoreKeeper : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        scoreTxt.text = "score : " + score;
 	}
     public void increaseScore() {
         score++;

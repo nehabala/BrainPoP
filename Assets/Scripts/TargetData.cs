@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 namespace Vuforia
 {
@@ -15,7 +16,7 @@ namespace Vuforia
         //public Transform TextDescription;
         //public Transform Button1;
         //public Transform Button2;
-        public Text AnswerTxt;
+        public TextMeshProUGUI AnswerTxt;
         public bool ansCheck;
         string tb_name;
 

@@ -21,4 +21,10 @@ public class SceneMgmt : MonoBehaviour {
 
         SceneManager.LoadScene(sceneNum);
     }
+
+    public void test() {
+        Debug.Log("++++++++++++++");
+    }
+
+
 }
